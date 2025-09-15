@@ -17,6 +17,28 @@ Lets take a look inside the `src` folder :
 - `services` ->  contains the business logic and interact with repositories for data from the database.
 - `utils` -> it contains all the utility file eg; helper methods , error classes , etc.
 
+- `migration`->If you want to do version controlling of your db then you should use migration.If you want to move from v1->v2 or v2->v1 then it is possible using migration. 
+Migrations are simple language scripts file and it is nothing but a js/ts file (eg; if you are using ruby and rails then it is ruby file).
+- How to create migration:
+```JS
+   sequelize migration:generate
+```
+- How to do migration:
+```JS
+   sequelize db:migration
+```
+- The above commmand run pending migrations.
+
+- `seeders`-> It is used to test the features of application, eg: if you want to create an user then instead of calling create api you can create a dummy data inside the seeder so that you can test that particular features.
+It will automatically populates the data inside the db and you can use this as a testing data(do not need to insert the data manually).
+
+
+
+
+
+
+
+
 
 ## Something about --save
 ```txt
@@ -54,39 +76,34 @@ make sure it should be mention in the .gitignore file
 
 ### Setup this project
 - Download the template from github and open it in your fav IDE.
+- You need to install the node packages use this command to download:
+```
+   npm install
+```
 - In the root directory create a `.env` file and add the following env variables.
 
 ```
         PORT = <port number your choice>
 
 ```
-- Inside the src/config folder create a config.json file and write the following code:
+- Go inside the `src` folder in terminal and execute the following commnads:
 ```
-{
-  "development": {
-    "username": "root",
-    "password": "your_password",
-    "database": "airline_db",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
-  }
-}
+   npx sequelize init
+```
+- By executing this command you will get three things : seeder, config and migration folder. 
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
 - If you are setting up your dev environment , then write the usernaame , password and in dialect writ `mysql`(what db you want to use mention it there).
 - If you are setting up with the test/prod then make sure the username , pswd , dialect , host should be related to that configuration.
 
