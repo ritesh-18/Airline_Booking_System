@@ -28,6 +28,20 @@ Migrations are simple language scripts file and it is nothing but a js/ts file (
    sequelize db:migration
 ```
 - The above commmand run pending migrations.
+- HOw to create a table (model) in db;
+```
+   npx sequelize model:generate --name Airplane --attributes modelNumber:string,capacity:integer
+```
+- How to migrate(applying all pending migrations) the created table(model) inside the MYSQL Db
+```
+    npx sequelize db:migrate
+```
+- You can undo the migrations as well
+```
+   sequelize db:migration:undo
+   sequelize db:migration:undo:all
+```
+- `Note` : Your model name should be Singular and your table name should be plural;
 
 - `seeders`-> It is used to test the features of application, eg: if you want to create an user then instead of calling create api you can create a dummy data inside the seeder so that you can test that particular features.
 It will automatically populates the data inside the db and you can use this as a testing data(do not need to insert the data manually).
