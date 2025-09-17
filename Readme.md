@@ -42,6 +42,11 @@ Migrations are simple language scripts file and it is nothing but a js/ts file (
    sequelize db:migration:undo:all
 ```
 - `Note` : Your model name should be Singular and your table name should be plural;
+- `Note` : Whaterver you are changing in model.js file , you need to make changes in migrations js file also otherwise it will not reflect inside the db(so to db level we need to update the migrations.js file also).
+- `Command`: 
+```
+    npx sequelize db:migrate
+```
 
 - `seeders`-> It is used to test the features of application, eg: if you want to create an user then instead of calling create api you can create a dummy data inside the seeder so that you can test that particular features.
 It will automatically populates the data inside the db and you can use this as a testing data(do not need to insert the data manually).
@@ -64,7 +69,7 @@ Additionally package-lock.json will be automatically created unless an npm-srink
 
 ```txt
 In node > 16.0 version you do not need to download nodemon to watch the files
-you can use `node --watch index.js`  to  watch your cod
+you can use `node --watch src/index.js`  to  run in watch mode
 ```
 
 ```txt
